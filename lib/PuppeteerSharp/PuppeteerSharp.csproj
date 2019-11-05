@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageVersion>2.0.0</PackageVersion>
+    <Authors>Darío Kondratiuk</Authors>
+    <Owners>Darío Kondratiuk</Owners>
+    <PackageProjectUrl>https://github.com/kblok/puppeteer-sharp</PackageProjectUrl>
+    <Summary>Headless Chrome .NET API</Summary>
+    <PackageTags>headless,chrome,puppeteer</PackageTags>
+    <Title>PuppeteerSharp</Title>
+    <Description>Headless Chrome .NET API</Description>
+    <PackageId>PuppeteerSharp</PackageId>
+    <PackageReleaseNotes><![CDATA[
+# New Features
+
+ * Add Page.EmulateTimezoneAsync.
+ * Add Page.EmulateMediaTypeAsync and Page.EmulateMediaFeaturesAsync.
+
+# Changelog
+ * Roll Chromium to r705776.
+ * Fix WaitFor Timeout defaults.
+ * Check cancellation on WaitTask.Cleanup.
+ * Improve WaitForSelector docs.
+ * Add page.screenshot viewport clipping test.
+ * Avoid unnecessary zero-delays in input code.
+ 
+ ]]></PackageReleaseNotes>
+    <ReleaseVersion>2.0.0</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\netstandard2.0\PuppeteerSharp.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>7.3</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="System.Net.Http" Version="4.3.3" />
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.0.2" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.1" />
+  </ItemGroup>
+</Project>
