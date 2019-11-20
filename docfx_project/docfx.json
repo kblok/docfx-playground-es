@@ -22,7 +22,7 @@
           "api/index.md"
         ]
       },
-      {
+      {1
         "files": [
           "articles/**.md",
           "articles/**/toc.yml",
@@ -49,7 +49,7 @@
         ]
       }
     ],
-    "dest": "_site",
+    "dest": ".",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
