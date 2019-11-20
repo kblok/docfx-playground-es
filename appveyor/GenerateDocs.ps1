@@ -4,14 +4,14 @@ if($env:APPVEYOR_REPO_TAG -eq 'True') {
 
     git config --global user.email "dariokondratiuk@gmail.com"
     git config --global user.name "Dario Kondratiuk"
-    git remote add pages https://github.com/kblok/puppeteer-sharp.git
+    git remote add pages https://github.com/kblok/docfx-playground-es.git
     git fetch pages
     git checkout master
     git subtree add --prefix docs pages/gh-pages
 
     docfx metadata docfx_project/docfx.json
     docfx build docfx_project/docfx.json -o docs
-    
+
     git add docs/* -f
     git commit -m "Docs version $($env:APPVEYOR_REPO_TAG_NAME)"
     git subtree push --prefix docs pages gh-pages
