@@ -11,7 +11,7 @@ environment:
     - framework: netcoreapp2.2
 install:
 - ps: >-
-    if($env:APPVEYOR_REPO_TAG -eq 'True' -And $env:framework -eq 'netcoreapp2.0') {
+    if($env:APPVEYOR_REPO_TAG -eq 'True') {
         choco install docfx
     }
 before_build:
