@@ -1,0 +1,28 @@
+version: 1.0.{build}
+branches:
+  only:
+  - master
+image: Visual Studio 2017
+configuration: Release
+environment:
+  git_access_token:
+    secure: FxcQ9C8a/NgcQB5dFdZts6ZWEDT4zMhA4qPQAYwWc7huMmhmTIl1sbFEIaAWQMTL
+  matrix:
+    - framework: netcoreapp2.2
+install:
+- ps: >-
+    if($env:APPVEYOR_REPO_TAG -eq 'True' -And $env:framework -eq 'netcoreapp2.0') {
+        choco install docfx
+    }
+build:
+  project: .\lib\PuppeteerSharp.sln
+  publish_nuget: true
+  include_nuget_references: true
+  verbosity: minimal
+on_success:
+- ps: >-
+    cd  c:\projects\docfx-playground-es
+
+    c:\projects\docfx-playground-es\appveyor\GenerateDocs.ps1
+cache:
+  - $HOME/.nuget/packages

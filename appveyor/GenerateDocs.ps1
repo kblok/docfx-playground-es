@@ -1,4 +1,4 @@
-if($env:APPVEYOR_REPO_TAG -eq 'True' -And $env:framework -eq 'netcoreapp2.0') {
+if($env:APPVEYOR_REPO_TAG -eq 'True') {
     git config --global credential.helper store
     Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:git_access_token):x-oauth-basic@github.com`n"
 
@@ -8,8 +8,10 @@ if($env:APPVEYOR_REPO_TAG -eq 'True' -And $env:framework -eq 'netcoreapp2.0') {
     git fetch pages
     git checkout master
     git subtree add --prefix docs pages/gh-pages
+
     docfx metadata docfx_project/docfx.json
     docfx build docfx_project/docfx.json -o docs
+    
     git add docs/* -f
     git commit -m "Docs version $($env:APPVEYOR_REPO_TAG_NAME)"
     git subtree push --prefix docs pages gh-pages
